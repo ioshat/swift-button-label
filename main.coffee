@@ -5,8 +5,9 @@ class Swift
     $ "let #{@name} = UIButton()"
     $ "#{@name}.setTranslatesAutoresizingMaskIntoConstraints(false)"
     $ "#{@name}.setTitleColor(UIColor(#{_.swiftColor(@baseTextStyle.color)}), forState: .Normal)"
-    $ "#{@name}.setTitle(\"#{@name}\", forState: .Normal)"
-    $ "#{@name}.titleLabel.font = UIFont(name: \"#{@baseTextStyle.font.name}\", size: 24)"
+    $ "#{@name}.setTitle(#{_.nsLocalizedString(this)}, forState: .Normal)"
+    if @baseTextStyle.font.postScriptName
+      $ "#{@name}.titleLabel.font = UIFont(name: \"#{@baseTextStyle.font.postScriptName}\", size: #{@baseTextStyle.font.size / 2})"
     $.newline()
     $ "#{@options.superviewName}.addSubview(#{@name})"
 
