@@ -7,7 +7,7 @@ class Swift
     $ "#{@name}.setTitleColor(UIColor(#{_.swiftColor(@baseTextStyle.color)}), forState: .Normal)"
     $ "#{@name}.setTitle(#{_.nsLocalizedString(this)}, forState: .Normal)"
     if @baseTextStyle.font.postScriptName
-      $ "#{@name}.titleLabel.font = UIFont(name: \"#{@baseTextStyle.font.postScriptName}\", size: #{@baseTextStyle.font.size / 2})"
+      $ "#{@name}.titleLabel.font = UIFont(name: \"#{@baseTextStyle.font.postScriptName}\", size: #{@baseTextStyle.font.size})"
     $.newline()
     $ "#{@options.superviewName}.addSubview(#{@name})"
 
